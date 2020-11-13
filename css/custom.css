@@ -1,0 +1,19 @@
+.jumbotron {
+    background-color: #41BBD9;
+}
+
+.navbar {
+    background-color: #41BBD9;
+}
+
+a.navbar-brand {
+    color: #41BBD9;
+}
+
+input.btn.btn-primary {
+    margin-bottom: 10px;
+}
+
+.required {
+    color: red;
+}
