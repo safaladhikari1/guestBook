@@ -17,3 +17,7 @@ input.btn.btn-primary {
 .required {
     color: red;
 }
+
+.err {
+    color: darkred;
+}

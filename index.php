@@ -18,16 +18,14 @@ include('includes/header.html');
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="firstname" name="fname"
-                               aria-describedby="required-firstname">
+                        <input class="form-control" type="text" id="firstname" name="fname">
                         <span class="d-none text-danger" id="errorFname">Please enter a first name</span>
                     </div>
 
                     <div class="form-group">
                         <label for="lastname">Last Name</label>
                         <span class="required">*</span>
-                        <input class="form-control" type="text" id="lastname" name="lname"
-                               aria-describedby="required-lastname">
+                        <input class="form-control" type="text" id="lastname" name="lname">
                         <span class="d-none text-danger" id="errorLname">Please enter a last name</span>
                     </div>
 
@@ -63,9 +61,9 @@ include('includes/header.html');
                     <legend>How we met</legend>
 
                     <div class="form-group">
-                        <label for="meettype" aria-describedby="required-how did we meet">How did we meet?</label>
+                        <label for="meettype">How did we meet?</label>
                         <span class="required">*</span>
-                        <select class="custom-select" id="meettype" name="meettype">
+                        <select class="custom-select" id="meettype" name="meettype[]">
                             <option value="0">Choose</option>
                             <option value="Meetup">Meetup</option>
                             <option value="Job Fair">Job Fair</option>
@@ -99,7 +97,7 @@ include('includes/header.html');
 
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="mailinglistcheck">
+                        <input type="checkbox" class="custom-control-input" id="mailinglistcheck" name="mailingList[]" value="yes">
                         <label class="custom-control-label" for="mailinglistcheck">Please add me to your mailing
                             list</label>
                     </div>

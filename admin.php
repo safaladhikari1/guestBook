@@ -4,14 +4,47 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// include will keep running, even if the file is not found.
-$page_title = "Admin Page";
-include ('includes/header.html');
+session_start();
+
+if(!isset($_SESSION['loggedin']))
+{
+    // Store the page that I'm currently on in the session
+    $_SESSION['page'] = $_SERVER['REQUEST_URI'];
+
+    // Redirect to login
+    header("location: login.php");
+}
 
 // require will look for the file, if it doesn't get it, it will terminate
-require ('includes/guestDbCreds.php');
+require ($_SERVER['HOME'].'/someFolder/dbcreds.php');
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Admin Page</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/guestbook.png">
+</head>
+<body>
+<!--Header -->
+<div class="jumbotron jumbotron-fluid text-white text-center">
+    <div class="container">
+        <h1 class="display-4">Sign My Guestbook!</h1>
+        <a type="button" class="btn btn-secondary btn-lg float-right" href="logout.php">Log Out</a>
+    </div>
+</div>
+
+<!-- Form -->
+<div class="container">
 
 <h1>Guest's Summary</h1>
     <table id="guest-table" class="display cell-border compact stripe">
@@ -77,7 +110,7 @@ require ('includes/guestDbCreds.php');
 
 <script>
     $('#guest-table').DataTable( {
-        "order": [[ 5, "desc" ]]
+        "order": [[ 0, "desc" ]]
     } );
 </script>
 
